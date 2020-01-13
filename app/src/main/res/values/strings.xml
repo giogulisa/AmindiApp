@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">AmindiApp</string>
+    <string name="tbilisi_ge">Tbilisi, GE</string>
+    <string name="partly_cloud">Partly cloud</string>
+    <string name="_27_c">27°c</string>
+    <string name="weather_today">Weather Today</string>
+    <string name="wheather_today">Wheather Today</string>
+    <string name="_03_january_2020_12_00_pm">03 January 2020, 12:00 PM</string>
+    <string name="_12_00am">12:00AM</string>
+    <string name="_23c">23c</string>
 </resources>
