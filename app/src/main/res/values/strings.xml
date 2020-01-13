@@ -8,4 +8,8 @@
     <string name="_03_january_2020_12_00_pm">03 January 2020, 12:00 PM</string>
     <string name="_12_00am">12:00AM</string>
     <string name="_23c">23c</string>
+    <string name="date">Date</string>
+    <string name="day">Day</string>
+    <string name="night">Night</string>
+    <string name="next_5_days">Next 5 Days</string>
 </resources>
