@@ -112,7 +112,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/weather_today"
+                        android:text="@string/wheather_next_hours"
                         android:textSize="24sp"
                         android:textStyle="bold"
                         android:layout_margin="10sp"/>
@@ -158,7 +158,7 @@
                         </LinearLayout>
 
                         <Space
-                            android:layout_width="15sp"
+                            android:layout_width="10sp"
                             android:layout_height="15dp" />
 
                         <LinearLayout
@@ -168,13 +168,13 @@
                             android:orientation="vertical">
 
                             <TextView
+                                android:id="@+id/wt2c"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="@string/_23c"
                                 android:textSize="15sp" />
 
                             <ImageView
-                                android:id="@+id/wt2c"
                                 android:layout_width="15sp"
                                 android:layout_height="15sp"
                                 android:layout_gravity="center"
@@ -190,7 +190,7 @@
                         </LinearLayout>
 
                         <Space
-                            android:layout_width="15sp"
+                            android:layout_width="10sp"
                             android:layout_height="15dp" />
 
                         <LinearLayout
@@ -200,13 +200,13 @@
                             android:orientation="vertical">
 
                             <TextView
+                                android:id="@+id/wt3c"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="@string/_23c"
                                 android:textSize="15sp" />
 
                             <ImageView
-                                android:id="@+id/wt3c"
                                 android:layout_width="15sp"
                                 android:layout_height="15sp"
                                 android:layout_gravity="center"
@@ -222,7 +222,7 @@
                         </LinearLayout>
 
                         <Space
-                            android:layout_width="15sp"
+                            android:layout_width="10sp"
                             android:layout_height="15dp" />
 
                         <LinearLayout
@@ -232,13 +232,13 @@
                             android:orientation="vertical">
 
                             <TextView
+                                android:id="@+id/wt4c"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="@string/_23c"
                                 android:textSize="15sp" />
 
                             <ImageView
-                                android:id="@+id/wt4c"
                                 android:layout_width="15sp"
                                 android:layout_height="15sp"
                                 android:layout_gravity="center"
@@ -254,7 +254,7 @@
                         </LinearLayout>
 
                         <Space
-                            android:layout_width="15sp"
+                            android:layout_width="10sp"
                             android:layout_height="15dp" />
 
                         <LinearLayout
@@ -331,8 +331,8 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
-                                android:orientation="horizontal"
-                                android:gravity="center">
+                                android:gravity="right"
+                                android:orientation="horizontal">
 
                                 <TextView
                                     android:layout_width="wrap_content"
@@ -345,15 +345,15 @@
                             <LinearLayout
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:orientation="horizontal"
-                                android:gravity="center">
+                                android:layout_weight="3"
+                                android:gravity="right|center_vertical"
+                                android:orientation="horizontal">
 
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_margin="10sp"
-                                    android:text="@string/date"
+                                    android:text="@string/day10"
                                     android:textSize="15sp" />
                             </LinearLayout>
 
@@ -361,14 +361,14 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
-                                android:orientation="horizontal"
-                                android:gravity="center">
+                                android:gravity="right"
+                                android:orientation="horizontal">
 
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_margin="10sp"
-                                    android:text="@string/date"
+                                    android:text="@string/night10"
                                     android:textSize="15sp" />
                             </LinearLayout>
 
@@ -387,10 +387,26 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
-                                android:orientation="horizontal"
-                                android:gravity="center">
+                                android:orientation="horizontal">
 
                                 <TextView
+                                    android:id="@+id/ndd1"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_margin="10sp"
+                                    android:text="@string/date"
+                                    android:textSize="15sp" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:gravity="left"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:id="@+id/ndd1d"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_margin="10sp"
@@ -406,72 +422,7 @@
                                 android:gravity="center">
 
                                 <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_margin="10sp"
-                                    android:text="@string/date"
-                                    android:textSize="15sp" />
-                            </LinearLayout>
-
-                            <LinearLayout
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:orientation="horizontal"
-                                android:gravity="center">
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_margin="10sp"
-                                    android:text="@string/date"
-                                    android:textSize="15sp" />
-                            </LinearLayout>
-
-                        </LinearLayout>
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:gravity="center">
-
-                            <LinearLayout
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:orientation="horizontal"
-                                android:gravity="center">
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_margin="10sp"
-                                    android:text="@string/date"
-                                    android:textSize="15sp" />
-                            </LinearLayout>
-
-                            <LinearLayout
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:orientation="horizontal"
-                                android:gravity="center">
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_margin="10sp"
-                                    android:text="@string/date"
-                                    android:textSize="15sp" />
-                            </LinearLayout>
-
-                            <LinearLayout
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:orientation="horizontal"
-                                android:gravity="center">
-
-                                <TextView
+                                    android:id="@+id/ndd1n"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_margin="10sp"
@@ -489,10 +440,26 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
-                                android:orientation="horizontal"
-                                android:gravity="center">
+                                android:orientation="horizontal">
 
                                 <TextView
+                                    android:id="@+id/ndd2"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_margin="10sp"
+                                    android:text="@string/date"
+                                    android:textSize="15sp" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:gravity="left"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:id="@+id/ndd2d"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_margin="10sp"
@@ -508,21 +475,7 @@
                                 android:gravity="center">
 
                                 <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_margin="10sp"
-                                    android:text="@string/date"
-                                    android:textSize="15sp" />
-                            </LinearLayout>
-
-                            <LinearLayout
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:orientation="horizontal"
-                                android:gravity="center">
-
-                                <TextView
+                                    android:id="@+id/ndd2n"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_margin="10sp"
@@ -531,7 +484,6 @@
                             </LinearLayout>
 
                         </LinearLayout>
-
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -541,10 +493,26 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
-                                android:orientation="horizontal"
-                                android:gravity="center">
+                                android:orientation="horizontal">
 
                                 <TextView
+                                    android:id="@+id/ndd3"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_margin="10sp"
+                                    android:text="@string/date"
+                                    android:textSize="15sp" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:gravity="left"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:id="@+id/ndd3d"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_margin="10sp"
@@ -560,21 +528,7 @@
                                 android:gravity="center">
 
                                 <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_margin="10sp"
-                                    android:text="@string/date"
-                                    android:textSize="15sp" />
-                            </LinearLayout>
-
-                            <LinearLayout
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:orientation="horizontal"
-                                android:gravity="center">
-
-                                <TextView
+                                    android:id="@+id/ndd3n"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_margin="10sp"
@@ -593,10 +547,26 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
-                                android:orientation="horizontal"
-                                android:gravity="center">
+                                android:orientation="horizontal">
 
                                 <TextView
+                                    android:id="@+id/ndd4"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_margin="10sp"
+                                    android:text="@string/date"
+                                    android:textSize="15sp" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:gravity="left"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:id="@+id/ndd4d"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_margin="10sp"
@@ -612,6 +582,45 @@
                                 android:gravity="center">
 
                                 <TextView
+                                    android:id="@+id/ndd4n"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_margin="10sp"
+                                    android:text="@string/date"
+                                    android:textSize="15sp" />
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center">
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:id="@+id/ndd5"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_margin="10sp"
+                                    android:text="@string/date"
+                                    android:textSize="15sp" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:gravity="left"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:id="@+id/ndd5d"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_margin="10sp"
@@ -627,6 +636,7 @@
                                 android:gravity="center">
 
                                 <TextView
+                                    android:id="@+id/ndd5n"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_margin="10sp"
