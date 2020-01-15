@@ -63,38 +63,30 @@ class MainActivity : AppCompatActivity() {
                     return  wt
                 }
                 fun getImage(Index: Int): Int {
-                    try {
-                        val main1 = jsonObj.getJSONArray("list").getJSONObject(Index)
-                        val imageType = main1.getJSONArray("weather").getJSONObject(0).getString("main").toString()
-                        val dt:Long = jsonObj.getJSONArray("list").getJSONObject(Index).getLong("dt")
-                        val Time = SimpleDateFormat("a", Locale.ENGLISH).format(Date(dt*1000))
-                        if(imageType == "Clear" && Time == "PM"){
-                            return  R.drawable.sun
-                        }
-                        if(imageType == "Clear" && Time == "AM"){
-                            return  R.drawable.moon
-                        }
-                        if(imageType == "Clouds" && Time == "AM"){
-                            return  R.drawable.mooncloud
-                        }
-                        if(imageType == "Clouds" && Time == "PM"){
-                            return  R.drawable.suncloud
-                        }
-                        if(imageType == "Snow" && Time == "PM"){
-                            return  R.drawable.snow
-                        }
-                        if(imageType == "Snow" && Time == "AM"){
-                            return  R.drawable.snow
-                        }
-                        if(imageType == "Rain" && Time == "PM"){
-                            return  R.drawable.sunrain
-                        }
-                        if(imageType == "Rain" && Time == "AM"){
-                            return  R.drawable.moonrain
-                        }
+                    val main1 = jsonObj.getJSONArray("list").getJSONObject(Index)
+                    val imageType = main1.getJSONArray("weather").getJSONObject(0).getString("main").toString()
+                    val dt:Long = jsonObj.getJSONArray("list").getJSONObject(Index).getLong("dt")
+                    val Time = SimpleDateFormat("HH", Locale.ENGLISH).format(Date(dt*1000)).toInt()
+                    if(imageType == "Clear" && Time > 9 && Time < 20){
+                        return  R.drawable.sun
                     }
-                    catch (e: Exception) {
-                        return  R.drawable.cloud
+                    if(imageType == "Clear" && (Time < 9 || Time > 20)){
+                        return  R.drawable.moon
+                    }
+                    if(imageType == "Clouds" && (Time < 9 || Time > 20)){
+                        return  R.drawable.mooncloud
+                    }
+                    if(imageType == "Clouds" && Time > 9 && Time < 20){
+                        return  R.drawable.suncloud
+                    }
+                    if(imageType == "Snow"){
+                        return  R.drawable.snow
+                    }
+                    if(imageType == "Rain" && Time > 9 && Time < 20){
+                        return  R.drawable.sunrain
+                    }
+                    if(imageType == "Rain" && (Time < 9 || Time > 20)){
+                        return  R.drawable.moonrain
                     }
                     return  R.drawable.cloud
                 }
@@ -191,7 +183,7 @@ class MainActivity : AppCompatActivity() {
                 if(ndd4 != ndd5){
                     findViewById<TextView>(R.id.ndd5).text =ndd5
                     if(SearchIndex + 32 < 39){
-                        val ndd5d = getTime1(SearchIndex + 32)
+                        val ndd5d = getTemp(SearchIndex + 32)
                         findViewById<TextView>(R.id.ndd5d).text =ndd5d
                         nd5d.setImageResource(getImage(SearchIndex + 32))
                     }
@@ -256,9 +248,9 @@ class MainActivity : AppCompatActivity() {
                 nd4d.setImageResource(getImage(SearchIndex + 24))
 
                 nd1n.setImageResource(getImage(SearchIndex + 4))
-                nd2d.setImageResource(getImage(SearchIndex + 12))
-                nd3d.setImageResource(getImage(SearchIndex + 20))
-                nd4d.setImageResource(getImage(SearchIndex + 28))
+                nd2n.setImageResource(getImage(SearchIndex + 12))
+                nd3n.setImageResource(getImage(SearchIndex + 20))
+                nd4n.setImageResource(getImage(SearchIndex + 28))
 
 
                 /* Views populated, Hiding the loader, Showing the main design */
