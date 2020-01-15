@@ -411,6 +411,14 @@
                                 android:gravity="left"
                                 android:orientation="horizontal">
 
+                                <ImageView
+                                    android:id="@+id/nd1d"
+                                    android:layout_width="15sp"
+                                    android:layout_height="15sp"
+                                    android:layout_gravity="center"
+                                    android:src="@drawable/sunrain"
+                                    android:tint="#FFFFFF" />
+
                                 <TextView
                                     android:id="@+id/ndd1d"
                                     android:layout_width="wrap_content"
@@ -426,6 +434,14 @@
                                 android:layout_weight="1"
                                 android:orientation="horizontal"
                                 android:gravity="center">
+
+                                <ImageView
+                                    android:id="@+id/nd1n"
+                                    android:layout_width="15sp"
+                                    android:layout_height="15sp"
+                                    android:layout_gravity="center"
+                                    android:src="@drawable/sunrain"
+                                    android:tint="#FFFFFF" />
 
                                 <TextView
                                     android:id="@+id/ndd1n"
@@ -464,6 +480,14 @@
                                 android:gravity="left"
                                 android:orientation="horizontal">
 
+                                <ImageView
+                                    android:id="@+id/nd2d"
+                                    android:layout_width="15sp"
+                                    android:layout_height="15sp"
+                                    android:layout_gravity="center"
+                                    android:src="@drawable/sunrain"
+                                    android:tint="#FFFFFF" />
+
                                 <TextView
                                     android:id="@+id/ndd2d"
                                     android:layout_width="wrap_content"
@@ -479,6 +503,14 @@
                                 android:layout_weight="1"
                                 android:orientation="horizontal"
                                 android:gravity="center">
+
+                                <ImageView
+                                    android:id="@+id/nd2n"
+                                    android:layout_width="15sp"
+                                    android:layout_height="15sp"
+                                    android:layout_gravity="center"
+                                    android:src="@drawable/sunrain"
+                                    android:tint="#FFFFFF" />
 
                                 <TextView
                                     android:id="@+id/ndd2n"
@@ -517,6 +549,14 @@
                                 android:gravity="left"
                                 android:orientation="horizontal">
 
+                                <ImageView
+                                    android:id="@+id/nd3d"
+                                    android:layout_width="15sp"
+                                    android:layout_height="15sp"
+                                    android:layout_gravity="center"
+                                    android:src="@drawable/sunrain"
+                                    android:tint="#FFFFFF" />
+
                                 <TextView
                                     android:id="@+id/ndd3d"
                                     android:layout_width="wrap_content"
@@ -532,6 +572,14 @@
                                 android:layout_weight="1"
                                 android:orientation="horizontal"
                                 android:gravity="center">
+
+                                <ImageView
+                                    android:id="@+id/nd3n"
+                                    android:layout_width="15sp"
+                                    android:layout_height="15sp"
+                                    android:layout_gravity="center"
+                                    android:src="@drawable/sunrain"
+                                    android:tint="#FFFFFF" />
 
                                 <TextView
                                     android:id="@+id/ndd3n"
@@ -571,6 +619,14 @@
                                 android:gravity="left"
                                 android:orientation="horizontal">
 
+                                <ImageView
+                                    android:id="@+id/nd4d"
+                                    android:layout_width="15sp"
+                                    android:layout_height="15sp"
+                                    android:layout_gravity="center"
+                                    android:src="@drawable/sunrain"
+                                    android:tint="#FFFFFF" />
+
                                 <TextView
                                     android:id="@+id/ndd4d"
                                     android:layout_width="wrap_content"
@@ -586,6 +642,14 @@
                                 android:layout_weight="1"
                                 android:orientation="horizontal"
                                 android:gravity="center">
+
+                                <ImageView
+                                    android:id="@+id/nd4n"
+                                    android:layout_width="15sp"
+                                    android:layout_height="15sp"
+                                    android:layout_gravity="center"
+                                    android:src="@drawable/sunrain"
+                                    android:tint="#FFFFFF" />
 
                                 <TextView
                                     android:id="@+id/ndd4n"
@@ -625,6 +689,14 @@
                                 android:gravity="left"
                                 android:orientation="horizontal">
 
+                                <ImageView
+                                    android:id="@+id/nd5d"
+                                    android:layout_width="15sp"
+                                    android:layout_height="15sp"
+                                    android:layout_gravity="center"
+                                    android:src="@drawable/sunrain"
+                                    android:tint="#FFFFFF" />
+
                                 <TextView
                                     android:id="@+id/ndd5d"
                                     android:layout_width="wrap_content"
@@ -640,6 +712,14 @@
                                 android:layout_weight="1"
                                 android:orientation="horizontal"
                                 android:gravity="center">
+
+                                <ImageView
+                                    android:id="@+id/nd5n"
+                                    android:layout_width="15sp"
+                                    android:layout_height="15sp"
+                                    android:layout_gravity="center"
+                                    android:src="@drawable/sunrain"
+                                    android:tint="#FFFFFF" />
 
                                 <TextView
                                     android:id="@+id/ndd5n"

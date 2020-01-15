@@ -63,33 +63,38 @@ class MainActivity : AppCompatActivity() {
                     return  wt
                 }
                 fun getImage(Index: Int): Int {
-                    val main1 = jsonObj.getJSONArray("list").getJSONObject(Index)
-                    val imageType = main1.getJSONArray("weather").getJSONObject(0).getString("main").toString()
-                    val dt:Long = jsonObj.getJSONArray("list").getJSONObject(Index).getLong("dt")
-                    val Time = SimpleDateFormat("a", Locale.ENGLISH).format(Date(dt*1000))
-                    if(imageType == "Clear" && Time == "PM"){
-                        return  R.drawable.sun
+                    try {
+                        val main1 = jsonObj.getJSONArray("list").getJSONObject(Index)
+                        val imageType = main1.getJSONArray("weather").getJSONObject(0).getString("main").toString()
+                        val dt:Long = jsonObj.getJSONArray("list").getJSONObject(Index).getLong("dt")
+                        val Time = SimpleDateFormat("a", Locale.ENGLISH).format(Date(dt*1000))
+                        if(imageType == "Clear" && Time == "PM"){
+                            return  R.drawable.sun
+                        }
+                        if(imageType == "Clear" && Time == "AM"){
+                            return  R.drawable.moon
+                        }
+                        if(imageType == "Clouds" && Time == "AM"){
+                            return  R.drawable.mooncloud
+                        }
+                        if(imageType == "Clouds" && Time == "PM"){
+                            return  R.drawable.suncloud
+                        }
+                        if(imageType == "Snow" && Time == "PM"){
+                            return  R.drawable.snow
+                        }
+                        if(imageType == "Snow" && Time == "AM"){
+                            return  R.drawable.snow
+                        }
+                        if(imageType == "Rain" && Time == "PM"){
+                            return  R.drawable.sunrain
+                        }
+                        if(imageType == "Rain" && Time == "AM"){
+                            return  R.drawable.moonrain
+                        }
                     }
-                    if(imageType == "Clear" && Time == "AM"){
-                        return  R.drawable.moon
-                    }
-                    if(imageType == "Clouds" && Time == "AM"){
-                        return  R.drawable.mooncloud
-                    }
-                    if(imageType == "Clouds" && Time == "PM"){
-                        return  R.drawable.suncloud
-                    }
-                    if(imageType == "Snow" && Time == "PM"){
-                        return  R.drawable.snow
-                    }
-                    if(imageType == "Snow" && Time == "AM"){
-                        return  R.drawable.snow
-                    }
-                    if(imageType == "Rain" && Time == "PM"){
-                        return  R.drawable.sunrain
-                    }
-                    if(imageType == "Rain" && Time == "AM"){
-                        return  R.drawable.moonrain
+                    catch (e: Exception) {
+                        return  R.drawable.cloud
                     }
                     return  R.drawable.cloud
                 }
@@ -188,6 +193,7 @@ class MainActivity : AppCompatActivity() {
                     if(SearchIndex + 32 < 39){
                         val ndd5d = getTime1(SearchIndex + 32)
                         findViewById<TextView>(R.id.ndd5d).text =ndd5d
+                        nd5d.setImageResource(getImage(SearchIndex + 32))
                     }
                     else{
                         val ndd5d = "Not Avalible"
@@ -244,6 +250,15 @@ class MainActivity : AppCompatActivity() {
                 wn4i.setImageResource(getImage(4))
                 wn5i.setImageResource(getImage(5))
 
+                nd1d.setImageResource(getImage(SearchIndex))
+                nd2d.setImageResource(getImage(SearchIndex + 8))
+                nd3d.setImageResource(getImage(SearchIndex + 16))
+                nd4d.setImageResource(getImage(SearchIndex + 24))
+
+                nd1n.setImageResource(getImage(SearchIndex + 4))
+                nd2d.setImageResource(getImage(SearchIndex + 12))
+                nd3d.setImageResource(getImage(SearchIndex + 20))
+                nd4d.setImageResource(getImage(SearchIndex + 28))
 
 
                 /* Views populated, Hiding the loader, Showing the main design */
