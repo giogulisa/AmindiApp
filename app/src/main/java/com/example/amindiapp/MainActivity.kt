@@ -4,10 +4,12 @@ package com.example.amindiapp
 import android.os.AsyncTask
 import android.os.Bundle
 import android.view.View
+import android.widget.ImageView
 import android.widget.ProgressBar
 import android.widget.RelativeLayout
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import kotlinx.android.synthetic.main.activity_main.*
 import org.json.JSONObject
 import java.net.URL
 import java.text.SimpleDateFormat
@@ -54,9 +56,42 @@ class MainActivity : AppCompatActivity() {
 
                 val jsonObj = JSONObject(result)
 
+                val main = jsonObj.getJSONArray("list").getJSONObject(0)
+
                 fun getTemp(Index: Int): String {
                     val wt = jsonObj.getJSONArray("list").getJSONObject(Index).getJSONObject("main").getString("temp")+"°C"
                     return  wt
+                }
+                fun getImage(Index: Int): Int {
+                    val main1 = jsonObj.getJSONArray("list").getJSONObject(Index)
+                    val imageType = main1.getJSONArray("weather").getJSONObject(0).getString("main").toString()
+                    val dt:Long = jsonObj.getJSONArray("list").getJSONObject(Index).getLong("dt")
+                    val Time = SimpleDateFormat("a", Locale.ENGLISH).format(Date(dt*1000))
+                    if(imageType == "Clear" && Time == "PM"){
+                        return  R.drawable.sun
+                    }
+                    if(imageType == "Clear" && Time == "AM"){
+                        return  R.drawable.moon
+                    }
+                    if(imageType == "Clouds" && Time == "AM"){
+                        return  R.drawable.mooncloud
+                    }
+                    if(imageType == "Clouds" && Time == "PM"){
+                        return  R.drawable.suncloud
+                    }
+                    if(imageType == "Snow" && Time == "PM"){
+                        return  R.drawable.snow
+                    }
+                    if(imageType == "Snow" && Time == "AM"){
+                        return  R.drawable.snow
+                    }
+                    if(imageType == "Rain" && Time == "PM"){
+                        return  R.drawable.sunrain
+                    }
+                    if(imageType == "Rain" && Time == "AM"){
+                        return  R.drawable.moonrain
+                    }
+                    return  R.drawable.cloud
                 }
 
                 fun getTime(Index: Int): String {
@@ -87,7 +122,7 @@ class MainActivity : AppCompatActivity() {
                     return SimpleDateFormat("dd MMMM", Locale.ENGLISH).format(Date(dt*1000))
                 }
 
-                val main = jsonObj.getJSONArray("list").getJSONObject(0)
+
 
                 //mtavari temperatura
                 val temp = getTemp(0)
@@ -201,6 +236,13 @@ class MainActivity : AppCompatActivity() {
                 findViewById<TextView>(R.id.ndd2).text =ndd2
                 findViewById<TextView>(R.id.ndd3).text =ndd3
                 findViewById<TextView>(R.id.ndd4).text =ndd4
+
+                MainImage.setImageResource(getImage(0))
+                wn1i.setImageResource(getImage(1))
+                wn2i.setImageResource(getImage(2))
+                wn3i.setImageResource(getImage(3))
+                wn4i.setImageResource(getImage(4))
+                wn5i.setImageResource(getImage(5))
 
 
 
