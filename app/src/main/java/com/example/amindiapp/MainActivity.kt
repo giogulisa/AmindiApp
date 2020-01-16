@@ -182,7 +182,7 @@ class MainActivity : AppCompatActivity() {
                 }
                 if(ndd4 != ndd5){
                     findViewById<TextView>(R.id.ndd5).text =ndd5
-                    if(SearchIndex + 32 < 39){
+                    if(SearchIndex + 32 <= 39){
                         val ndd5d = getTemp(SearchIndex + 32)
                         findViewById<TextView>(R.id.ndd5d).text =ndd5d
                         nd5d.setImageResource(getImage(SearchIndex + 32))
