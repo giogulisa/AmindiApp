@@ -4,10 +4,7 @@ package com.example.amindiapp
 import android.os.AsyncTask
 import android.os.Bundle
 import android.view.View
-import android.widget.ImageView
-import android.widget.ProgressBar
-import android.widget.RelativeLayout
-import android.widget.TextView
+import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_main.*
 import org.json.JSONObject
@@ -17,7 +14,8 @@ import java.util.*
 
 class MainActivity : AppCompatActivity() {
 
-    val CITY: String = "Tbilisi"
+    var CITY: String = "Tbilisi"
+    var CITY1: String = "Tbilisi"
     val API: String = "1bca69a96d7d90333819f87cb9402424" // Use your own API key
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -35,6 +33,12 @@ class MainActivity : AppCompatActivity() {
             findViewById<ProgressBar>(R.id.loader).visibility = View.VISIBLE
             findViewById<RelativeLayout>(R.id.mainContainer).visibility = View.GONE
             findViewById<TextView>(R.id.errorText).visibility = View.GONE
+
+            val Text = findViewById<TextView>(R.id.errorText)
+            Text.setOnClickListener {
+                CITY = CITY1
+                weatherTask().execute()
+            }
         }
 
         override fun doInBackground(vararg params: String?): String? {
@@ -257,10 +261,19 @@ class MainActivity : AppCompatActivity() {
                 findViewById<ProgressBar>(R.id.loader).visibility = View.GONE
                 findViewById<RelativeLayout>(R.id.mainContainer).visibility = View.VISIBLE
 
+                val button = findViewById<Button>(R.id.Search)
+                button.setOnClickListener {
+                    CITY1 = CITY
+                    CITY = City.text.toString()
+                    weatherTask().execute()
+                }
+
             } catch (e: Exception) {
                 findViewById<ProgressBar>(R.id.loader).visibility = View.GONE
                 findViewById<TextView>(R.id.errorText).visibility = View.VISIBLE
             }
         }
+
     }
 }
+
