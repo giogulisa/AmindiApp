@@ -121,14 +121,14 @@ class MainActivity : AppCompatActivity() {
 
 
 
-                //mtavari temperatura
+                //Main Temperature
                 val temp = getTemp(0)
 
-                //description amindis
+                //Description of the Weather
                 val weather = main.getJSONArray("weather").getJSONObject(0)
                 val weatherDescription = weather.getString("description")
 
-                //ganaxlda
+                //Update
                 val updatedAtText = getTime(0)
 
                 //City
@@ -197,7 +197,7 @@ class MainActivity : AppCompatActivity() {
 
 
 
-                /* Populating extracted data into our views */
+                /* Populating extracted data into views */
                 findViewById<TextView>(R.id.address).text = (address + ", " + country)
                 findViewById<TextView>(R.id.updated_at).text =  updatedAtText
                 findViewById<TextView>(R.id.status).text = weatherDescription.capitalize()
@@ -261,8 +261,6 @@ class MainActivity : AppCompatActivity() {
                 findViewById<ProgressBar>(R.id.loader).visibility = View.GONE
                 findViewById<TextView>(R.id.errorText).visibility = View.VISIBLE
             }
-
-
         }
     }
 }
