@@ -16,7 +16,6 @@ import java.util.*
 class MainActivity : AppCompatActivity() {
 
     var CITY: String = "Tbilisi"
-    var CITY1: String = "Tbilisi"
     val API: String = "1bca69a96d7d90333819f87cb9402424" // Use your own API key
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -32,12 +31,10 @@ class MainActivity : AppCompatActivity() {
             super.onPreExecute()
             /* Showing the ProgressBar, Making the main design GONE */
             findViewById<ProgressBar>(R.id.loader).visibility = View.VISIBLE
-            //findViewById<RelativeLayout>(R.id.relativeLayout2).visibility = View.GONE
             findViewById<TextView>(R.id.errorText).visibility = View.GONE
 
             val Text = findViewById<TextView>(R.id.errorText)
             Text.setOnClickListener {
-                CITY = CITY1
                 weatherTask().execute()
             }
         }
@@ -260,12 +257,10 @@ class MainActivity : AppCompatActivity() {
 
                 /* Views populated, Hiding the loader, Showing the main design */
                 findViewById<ProgressBar>(R.id.loader).visibility = View.GONE
-                //findViewById<RelativeLayout>(R.id.relativeLayout2).visibility = View.VISIBLE
                 findViewById<TextView>(R.id.errorText).visibility = View.GONE
 
                 val button = findViewById<Button>(R.id.Search)
                 button.setOnClickListener {
-                    CITY1 = CITY
                     CITY = City.text.toString()
                     weatherTask().execute()
                     City.onEditorAction(EditorInfo.IME_ACTION_DONE)
