@@ -4,6 +4,7 @@ package com.example.amindiapp
 import android.os.AsyncTask
 import android.os.Bundle
 import android.view.View
+import android.view.inputmethod.EditorInfo
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_main.*
@@ -31,7 +32,7 @@ class MainActivity : AppCompatActivity() {
             super.onPreExecute()
             /* Showing the ProgressBar, Making the main design GONE */
             findViewById<ProgressBar>(R.id.loader).visibility = View.VISIBLE
-            findViewById<RelativeLayout>(R.id.mainContainer).visibility = View.GONE
+            //findViewById<RelativeLayout>(R.id.relativeLayout2).visibility = View.GONE
             findViewById<TextView>(R.id.errorText).visibility = View.GONE
 
             val Text = findViewById<TextView>(R.id.errorText)
@@ -259,13 +260,15 @@ class MainActivity : AppCompatActivity() {
 
                 /* Views populated, Hiding the loader, Showing the main design */
                 findViewById<ProgressBar>(R.id.loader).visibility = View.GONE
-                findViewById<RelativeLayout>(R.id.mainContainer).visibility = View.VISIBLE
+                //findViewById<RelativeLayout>(R.id.relativeLayout2).visibility = View.VISIBLE
+                findViewById<TextView>(R.id.errorText).visibility = View.GONE
 
                 val button = findViewById<Button>(R.id.Search)
                 button.setOnClickListener {
                     CITY1 = CITY
                     CITY = City.text.toString()
                     weatherTask().execute()
+                    City.onEditorAction(EditorInfo.IME_ACTION_DONE)
                 }
 
             } catch (e: Exception) {
