@@ -4,10 +4,8 @@ package com.example.amindiapp
 import android.os.AsyncTask
 import android.os.Bundle
 import android.view.View
-import android.widget.ImageView
-import android.widget.ProgressBar
-import android.widget.RelativeLayout
-import android.widget.TextView
+import android.view.inputmethod.EditorInfo
+import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_main.*
 import org.json.JSONObject
@@ -17,8 +15,8 @@ import java.util.*
 
 class MainActivity : AppCompatActivity() {
 
-    val CITY: String = "Tbilisi"
-    val API: String = "1bca69a96d7d90333819f87cb9402424" // Use your own API key
+    var CITY: String = "Tbilisi"
+    val API: String = "1bca69a96d7d90333819f87cb9402424"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,14 +31,18 @@ class MainActivity : AppCompatActivity() {
             super.onPreExecute()
             /* Showing the ProgressBar, Making the main design GONE */
             findViewById<ProgressBar>(R.id.loader).visibility = View.VISIBLE
-            findViewById<RelativeLayout>(R.id.mainContainer).visibility = View.GONE
             findViewById<TextView>(R.id.errorText).visibility = View.GONE
+
+            val Text = findViewById<TextView>(R.id.errorText)
+            Text.setOnClickListener {
+                weatherTask().execute()
+            }
         }
 
         override fun doInBackground(vararg params: String?): String? {
             var response:String?
             try{
-                response = URL("https://api.openweathermap.org/data/2.5/forecast?q=$CITY&units=metric&APPID=$API").readText(
+                response = URL("https://api.openweathermap.org/data/2.5/forecast?q=$CITY&APPID=$API").readText(
                     Charsets.UTF_8
                 )
             }catch (e: Exception){
@@ -59,8 +61,9 @@ class MainActivity : AppCompatActivity() {
                 val main = jsonObj.getJSONArray("list").getJSONObject(0)
 
                 fun getTemp(Index: Int): String {
-                    val wt = jsonObj.getJSONArray("list").getJSONObject(Index).getJSONObject("main").getString("temp")+"°C"
-                    return  wt
+                    val wt = jsonObj.getJSONArray("list").getJSONObject(Index).getJSONObject("main").getString("temp").toDouble() - 273.15
+                    val roundedwt = Math.round(wt).toString()+ "°C"
+                    return  roundedwt
                 }
                 fun getImage(Index: Int): Int {
                     val main1 = jsonObj.getJSONArray("list").getJSONObject(Index)
@@ -172,9 +175,9 @@ class MainActivity : AppCompatActivity() {
                 val ndd4 = getTimeFull(SearchIndex + 24)
                 val ndd5 = getTimeFull(39)
                 if(ndd4 == ndd5){
-                    val ndd5d = "Not Avalible"
-                    val ndd5n = "Not Avalible"
-                    val ndd5 = "Not Avalible"
+                    val ndd5d = "Not Availible"
+                    val ndd5n = "Not Availible"
+                    val ndd5 = "Not Availible"
 
                     findViewById<TextView>(R.id.ndd5d).text =ndd5d
                     findViewById<TextView>(R.id.ndd5n).text =ndd5n
@@ -188,10 +191,10 @@ class MainActivity : AppCompatActivity() {
                         nd5d.setImageResource(getImage(SearchIndex + 32))
                     }
                     else{
-                        val ndd5d = "Not Avalible"
+                        val ndd5d = "Not Availible"
                         findViewById<TextView>(R.id.ndd5d).text =ndd5d
                     }
-                    val ndd5n = "Not Avalible"
+                    val ndd5n = "Not Availible"
                     findViewById<TextView>(R.id.ndd5n).text =ndd5n
                 }
 
@@ -255,12 +258,21 @@ class MainActivity : AppCompatActivity() {
 
                 /* Views populated, Hiding the loader, Showing the main design */
                 findViewById<ProgressBar>(R.id.loader).visibility = View.GONE
-                findViewById<RelativeLayout>(R.id.mainContainer).visibility = View.VISIBLE
+                findViewById<TextView>(R.id.errorText).visibility = View.GONE
+
+                val button = findViewById<Button>(R.id.Search)
+                button.setOnClickListener {
+                    CITY = City.text.toString()
+                    weatherTask().execute()
+                    City.onEditorAction(EditorInfo.IME_ACTION_DONE)
+                }
 
             } catch (e: Exception) {
                 findViewById<ProgressBar>(R.id.loader).visibility = View.GONE
                 findViewById<TextView>(R.id.errorText).visibility = View.VISIBLE
             }
         }
+
     }
 }
+
