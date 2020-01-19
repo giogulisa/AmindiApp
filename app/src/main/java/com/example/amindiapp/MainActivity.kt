@@ -3,6 +3,8 @@ package com.example.amindiapp
 
 import android.os.AsyncTask
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.view.View
 import android.view.inputmethod.EditorInfo
 import android.widget.*
@@ -33,10 +35,15 @@ class MainActivity : AppCompatActivity() {
             findViewById<ProgressBar>(R.id.loader).visibility = View.VISIBLE
             findViewById<TextView>(R.id.errorText).visibility = View.GONE
 
-            val Text = findViewById<TextView>(R.id.errorText)
-            Text.setOnClickListener {
+            val button = findViewById<Button>(R.id.Search)
+
+            button.setOnClickListener {
+                if(City.text.toString().length != 0) CITY = City.text.toString()
                 weatherTask().execute()
+                City.onEditorAction(EditorInfo.IME_ACTION_DONE)
             }
+
+            City.setText(CITY)
         }
 
         override fun doInBackground(vararg params: String?): String? {
@@ -136,8 +143,12 @@ class MainActivity : AppCompatActivity() {
 
                 //City
                 val city = jsonObj.getJSONObject("city")
+
                 val address = city.getString("name")
                 val country = city.getString("country")
+
+                CITY = address
+
 
                 //Weather Next Hours BY Celsius
                 val wt1c = getTemp(1)
@@ -260,13 +271,6 @@ class MainActivity : AppCompatActivity() {
                 findViewById<ProgressBar>(R.id.loader).visibility = View.GONE
                 findViewById<TextView>(R.id.errorText).visibility = View.GONE
 
-                val button = findViewById<Button>(R.id.Search)
-                button.setOnClickListener {
-                    CITY = City.text.toString()
-                    weatherTask().execute()
-                    City.onEditorAction(EditorInfo.IME_ACTION_DONE)
-                }
-
             } catch (e: Exception) {
                 findViewById<ProgressBar>(R.id.loader).visibility = View.GONE
                 findViewById<TextView>(R.id.errorText).visibility = View.VISIBLE
@@ -275,4 +279,3 @@ class MainActivity : AppCompatActivity() {
 
     }
 }
-
