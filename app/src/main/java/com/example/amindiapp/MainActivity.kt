@@ -16,7 +16,7 @@ import java.util.*
 class MainActivity : AppCompatActivity() {
 
     var CITY: String = "Tbilisi"
-    val API: String = "1bca69a96d7d90333819f87cb9402424" // Use your own API key
+    val API: String = "1bca69a96d7d90333819f87cb9402424"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,7 +42,7 @@ class MainActivity : AppCompatActivity() {
         override fun doInBackground(vararg params: String?): String? {
             var response:String?
             try{
-                response = URL("https://api.openweathermap.org/data/2.5/forecast?q=$CITY&units=metric&APPID=$API").readText(
+                response = URL("https://api.openweathermap.org/data/2.5/forecast?q=$CITY&APPID=$API").readText(
                     Charsets.UTF_8
                 )
             }catch (e: Exception){
@@ -61,8 +61,9 @@ class MainActivity : AppCompatActivity() {
                 val main = jsonObj.getJSONArray("list").getJSONObject(0)
 
                 fun getTemp(Index: Int): String {
-                    val wt = jsonObj.getJSONArray("list").getJSONObject(Index).getJSONObject("main").getString("temp")+"°C"
-                    return  wt
+                    val wt = jsonObj.getJSONArray("list").getJSONObject(Index).getJSONObject("main").getString("temp").toDouble() - 273.15
+                    val roundedwt = Math.round(wt).toString()+ "°C"
+                    return  roundedwt
                 }
                 fun getImage(Index: Int): Int {
                     val main1 = jsonObj.getJSONArray("list").getJSONObject(Index)
