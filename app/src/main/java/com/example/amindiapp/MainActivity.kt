@@ -175,9 +175,9 @@ class MainActivity : AppCompatActivity() {
                 val ndd4 = getTimeFull(SearchIndex + 24)
                 val ndd5 = getTimeFull(39)
                 if(ndd4 == ndd5){
-                    val ndd5d = "Not Avalible"
-                    val ndd5n = "Not Avalible"
-                    val ndd5 = "Not Avalible"
+                    val ndd5d = "Not Availible"
+                    val ndd5n = "Not Availible"
+                    val ndd5 = "Not Availible"
 
                     findViewById<TextView>(R.id.ndd5d).text =ndd5d
                     findViewById<TextView>(R.id.ndd5n).text =ndd5n
@@ -191,10 +191,10 @@ class MainActivity : AppCompatActivity() {
                         nd5d.setImageResource(getImage(SearchIndex + 32))
                     }
                     else{
-                        val ndd5d = "Not Avalible"
+                        val ndd5d = "Not Availible"
                         findViewById<TextView>(R.id.ndd5d).text =ndd5d
                     }
-                    val ndd5n = "Not Avalible"
+                    val ndd5n = "Not Availible"
                     findViewById<TextView>(R.id.ndd5n).text =ndd5n
                 }
 
