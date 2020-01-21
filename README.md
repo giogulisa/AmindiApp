@@ -1,2 +1,2 @@
 # AmindiApp
-![Amindi](https://user-images.githubusercontent.com/33872080/72685630-6692e680-3b05-11ea-95d2-db8beb29def6.png)
+![colorchanged](https://user-images.githubusercontent.com/33872080/72782018-2bdf9a00-3c3c-11ea-88a9-f0e948c5ecc7.png)
